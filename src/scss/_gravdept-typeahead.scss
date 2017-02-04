@@ -1,0 +1,150 @@
+/**
+* Gravity Department - Typeahead
+* https://github.com/gravitydepartment/typeahead
+*
+* @author     Brendan Falkowski
+* @copyright  2017 Gravity Department. All rights reserved.
+*/
+
+
+// ==============================================
+// Typeahead
+// ==============================================
+
+.typeahead {
+    position: relative;
+    margin-bottom: $gap;
+    padding: 5px 0;
+    border: 1px solid $c-module-border;
+    border-radius: 3px;
+    background: $c-module-background;
+
+    &:before {
+        @include triangle (up, 10px, black(0.15));
+        top: -11px;
+        left: 20px;
+        z-index: $z-menu-arrow-stroke;
+    }
+
+    &:after {
+        @include triangle (up, 10px, $c-module-background);
+        top: -10px;
+        left: 20px;
+        z-index: $z-menu-arrow-fill;
+    }
+}
+
+
+
+// ==============================================
+// Typeahead - Loading
+// ==============================================
+
+.typeahead_loading {
+    padding: 5px 15px;
+}
+
+
+// ==============================================
+// Typeahead - Empty
+// ==============================================
+
+.typeahead_empty {
+    padding: 10px 15px;
+}
+
+
+
+// ==============================================
+// Typeahead - Group
+// ==============================================
+
+.typeahead_group {
+    padding: 15px 0 5px;
+    border-top: 1px solid $c-module-border;
+
+    &:first-child {
+        padding-top: (15px - 5px); // -5px for padding on ".typeahead"
+        border-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+
+
+
+// ==============================================
+// Typeahead - Title
+// ==============================================
+
+.typeahead_title {
+    margin-bottom: 5px;
+    padding: 0 15px;
+    color: $c-text-subtle;
+    font-size: $f-size-xxs;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+
+// ==============================================
+// Typeahead - Item
+// ==============================================
+
+.typeahead_item {
+    position: relative;
+    border-top: 1px solid $c-module-border;
+
+    &:first-child {
+        border-top: 0;
+    }
+}
+
+.typeahead_group .typeahead_item {
+    border-top: 0;
+}
+
+
+
+// ==============================================
+// Typeahead - Link
+// ==============================================
+
+.typeahead_link {
+    display: block;
+    padding: 8px 15px;
+    color: $c-text;
+}
+
+.no-touchevents .typeahead_link:hover,
+.typeahead_link:focus {
+    color: $c-text;
+    background: $c-module-border;
+}
+
+
+
+// ==============================================
+// Typeahead - Misc.
+// ==============================================
+
+.typeahead .product-image {
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.typeahead .product-name {
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.typeahead_add-to-cart {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+}
