@@ -59,25 +59,43 @@ Typeahead.prototype = {
     addEvents: function () {
         var thisRef = this;
 
-        // Check if prevent form submit
-        if (this.config.preventFormSubmit) {
-            this.$form.on('submit', function (e) {
-                e.preventDefault();
-            });
-        }
-
-        // Listen for input changes
+        // Listen for typing
         this.$input.on('input', this.debounce(function (e) {
             thisRef.onInput();
         }, this.config.debounceTime));
 
-        // Hide typeahead on blur
-        this.$input.on('blur', function () {
-            // [todo]
-            // Keyboard nav into menu almost works natively with {tab} key.
-            // Using blur breaks this. Should try to work around it.
+        // Keyboard nav enhancement
+        this.$input.on('keydown', function (e) {
+            // Press "tab" to focus the first typeahead link
+            if (e.keyCode === 9) {
+                e.preventDefault(); // Don't tab to "submit" button
+                thisRef.$response.find('.typeahead_link').first().focus();
+            }
+        });
 
-            thisRef.hideTypeahead();
+        // Listen for form submit
+        this.$form.on('submit', function (e) {
+            if (this.config.preventFormSubmit) {
+                e.preventDefault();
+            } else {
+                thisRef.hideTypeahead();
+            }
+        });
+
+        // Click outside form to close typeahead
+        jQuery(document).on('click', function (e) {
+            var $target  = jQuery(e.target);
+            var $parents = $target.parents();
+
+            if ($parents.index(thisRef.$form) === -1) {
+                thisRef.hideTypeahead();
+            }
+        });
+
+        // Click typeahead link shows loading + follows link
+        this.$form.on('click', '.typeahead_link', function (e) {
+            e.stopPropagation(); // Prevent bubbling to "document" and triggering other events
+            thisRef.showLoading();
         });
     },
 
