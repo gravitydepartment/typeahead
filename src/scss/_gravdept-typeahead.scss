@@ -127,6 +127,14 @@
 }
 
 
+// ----------------------------------------------
+// Modifier: Product
+
+.typeahead_link--product {
+    padding-right: (15px + 85px + 15px); // Magic number. Space for "add to cart" button.
+}
+
+
 
 // ==============================================
 // Typeahead - Misc.
