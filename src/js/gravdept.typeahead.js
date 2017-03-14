@@ -167,8 +167,8 @@ Typeahead.prototype = {
      */
     renderGroup: function (title, body) {
         var group = this.template.group;
-        group = group.replace(/TYPEAHEAD_GROUP_TITLE/, title);
-        group = group.replace(/TYPEAHEAD_GROUP_BODY/,  body);
+        group = group.replace(/{{groupTitle}}/, title);
+        group = group.replace(/{{groupBody}}/,  body);
         return group;
     },
 
