@@ -172,6 +172,10 @@ Typeahead.prototype = {
         return group;
     },
 
+    resetInput: function () {
+        this.$input.val('');
+    },
+
     /**
      * @param {string} query - query value
      */
