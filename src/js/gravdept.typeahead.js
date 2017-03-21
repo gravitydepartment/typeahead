@@ -75,7 +75,7 @@ Typeahead.prototype = {
 
         // Listen for form submit
         this.$form.on('submit', function (e) {
-            if (this.config.preventFormSubmit) {
+            if (thisRef.config.preventFormSubmit) {
                 e.preventDefault();
             } else {
                 thisRef.hideTypeahead();
