@@ -20,6 +20,7 @@ function Typeahead () {
             input:    null, // {string} - ID of text input
             response: null  // {string} - ID of response element
         },
+        headers:           {},    // {object}  - HTTP headers to attach to request
         preventFormSubmit: false, // {boolean} - Prevent form submit if no "action" exists
         queryMinimum:      3,     // {number}  - Minimum characters to start typeahead
         requestData:       {},    // {object}  - URL params to attach to request
@@ -192,6 +193,7 @@ Typeahead.prototype = {
                 }
             },
             data: data,
+            headers: thisRef.config.headers,
             url: thisRef.config.url
         }).fail(function () {
             thisRef.hideTypeahead();
