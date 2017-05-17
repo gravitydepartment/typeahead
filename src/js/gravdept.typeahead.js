@@ -184,7 +184,7 @@ Typeahead.prototype = {
         var thisRef = this;
 
         var data = this.config.requestData;
-        data[this.$input.attr('name')] = query;
+        data[this.$input.attr('name')] = query.trim();
 
         jQuery.ajax({
             beforeSend: function () {
