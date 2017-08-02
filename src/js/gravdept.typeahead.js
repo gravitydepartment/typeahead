@@ -58,11 +58,11 @@ Typeahead.prototype = {
     },
 
     addEvents: function () {
-        var thisRef = this;
+        var _this = this;
 
         // Listen for typing
         this.$input.on('input', this.debounce(function (e) {
-            thisRef.onInput();
+            _this.onInput();
         }, this.config.debounceTime));
 
         // Keyboard nav enhancement
@@ -70,16 +70,16 @@ Typeahead.prototype = {
             // Press "tab" to focus the first typeahead link
             if (e.keyCode === 9) {
                 e.preventDefault(); // Don't tab to "submit" button
-                thisRef.$response.find('.typeahead_link').first().focus();
+                _this.$response.find('.typeahead_link').first().focus();
             }
         });
 
         // Listen for form submit
         this.$form.on('submit', function (e) {
-            if (thisRef.config.preventFormSubmit) {
+            if (_this.config.preventFormSubmit) {
                 e.preventDefault();
             } else {
-                thisRef.hideTypeahead();
+                _this.hideTypeahead();
             }
         });
 
@@ -88,15 +88,15 @@ Typeahead.prototype = {
             var $target  = jQuery(e.target);
             var $parents = $target.parents();
 
-            if ($parents.index(thisRef.$form) === -1) {
-                thisRef.hideTypeahead();
+            if ($parents.index(_this.$form) === -1) {
+                _this.hideTypeahead();
             }
         });
 
         // Click typeahead link shows loading + follows link
         this.$form.on('click', '.typeahead_link', function (e) {
             e.stopPropagation(); // Prevent bubbling to "document" and triggering other events
-            thisRef.showLoading();
+            _this.showLoading();
         });
     },
 
@@ -181,31 +181,31 @@ Typeahead.prototype = {
      * @param {string} query - query value
      */
     sendRequest: function (query) {
-        var thisRef = this;
+        var _this = this;
 
         var data = this.config.requestData;
         data[this.$input.attr('name')] = query.trim();
 
         jQuery.ajax({
             beforeSend: function () {
-                if (thisRef.config.showLoading) {
-                    thisRef.showLoading();
+                if (_this.config.showLoading) {
+                    _this.showLoading();
                 }
             },
             data: data,
-            headers: thisRef.config.headers,
-            url: thisRef.config.url
+            headers: _this.config.headers,
+            url: _this.config.url
         }).fail(function () {
-            thisRef.hideTypeahead();
+            _this.hideTypeahead();
         }).done(function (json) {
             if (typeof json === 'string') {
                 json = JSON.parse(json);
             }
 
-            var html = thisRef.render(json);
+            var html = _this.render(json);
 
             if (html !== false) {
-                thisRef.showTypeahead(html);
+                _this.showTypeahead(html);
             }
         });
     },
