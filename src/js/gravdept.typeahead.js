@@ -94,8 +94,18 @@ Typeahead.prototype = {
         });
 
         // Click typeahead link shows loading + follows link
-        this.$form.on('click', '.typeahead_link', function (e) {
+        this.$response.on('click', '.typeahead_link', function (e) {
+            e.preventDefault();
             e.stopPropagation(); // Prevent bubbling to "document" and triggering other events
+
+            var href = jQuery(this).attr('href');
+
+            // Manually redirect to "href"
+            // See: https://github.com/gravitydepartment/typeahead/issues/1
+            if (typeof href !== 'undefined' && href !== '') {
+                window.location = href;
+            }
+
             _this.showLoading();
         });
     },
