@@ -1,0 +1,72 @@
+<!--
+/**
+* Gravity Department - Typeahead
+* https://github.com/gravitydepartment/typeahead
+*
+* @author     Brendan Falkowski
+* @copyright  2017 Gravity Department. All rights reserved.
+*/
+-->
+
+<script type="text/template" data-js-template="typeahead-empty">
+    <div class="typeahead_empty">
+        No results found.
+    </div>
+</script>
+
+<script type="text/template" data-js-template="typeahead-group">
+    <div class="typeahead_group">
+        <h2 class="typeahead_title">{{groupTitle}}</h2>
+        {{groupBody}}
+    </div>
+</script>
+
+<script type="text/template" data-js-template="typeahead-item-link">
+    <div class="typeahead_item">
+        <a class="typeahead_link" href="{{url}}">
+            {{label}}
+        </a>
+    </div>
+</script>
+
+<script type="text/template" data-js-template="typeahead-item-product">
+    <div class="typeahead_item">
+        <a class="typeahead_link typeahead_link--has-button" href="{{url}}">
+            <div class="media">
+                <div class="media_item">
+                    <div class="product-image">
+                        <img src="{{imageUrl}}" alt="">
+                    </div>
+                </div>
+
+                <div class="media_body">
+                    <div class="product-name">
+                        {{name}}
+                    </div>
+
+                    <div class="product-numbers">
+                        <div class="item-number">
+                            Item: {{itemNumber}}
+                        </div>
+
+                        <div class="item-number">
+                            MFR: {{manufacturerNumber}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <button type="button" class="button button--xs button--subtle typeahead_button" onclick="quickToCart.addSku(this, '{{sku}}');">
+            Add To Cart
+        </button>
+    </div>
+</script>
+
+<script type="text/template" data-js-template="typeahead-loading">
+    <div class="typeahead_loading">
+        <div class="loading">
+            Loading...
+        </div>
+    </div>
+</script>
