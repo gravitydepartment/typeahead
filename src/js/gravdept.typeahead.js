@@ -188,7 +188,7 @@ Typeahead.prototype = {
     },
 
     /**
-     * @param {string} query - query value
+     * @param {string} query - Query value
      */
     sendRequest: function (query) {
         var _this = this;
@@ -235,7 +235,7 @@ Typeahead.prototype = {
     },
 
     /**
-     * @param {string} markup - HTML to display
+     * @param {string} html - HTML to display
      */
     showTypeahead: function (html) {
         this.$response
