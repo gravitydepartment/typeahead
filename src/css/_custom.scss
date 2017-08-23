@@ -1,0 +1,41 @@
+/**
+* Gravity Department - Typeahead
+* https://github.com/gravitydepartment/typeahead
+*
+* @author     Brendan Falkowski
+* @copyright  2017 Gravity Department. All rights reserved.
+*/
+
+
+// ==============================================
+// Typeahead - Link
+// ==============================================
+
+.typeahead_link .product-image {
+    width: 60px;
+    height: 60px;
+}
+
+.typeahead_link .product-name {
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+
+// ----------------------------------------------
+// Modifier: Has Button
+
+.typeahead_link--has-button {
+    padding-right: (15px + 85px + 15px); // Magic number. Space for "add to cart" button.
+}
+
+
+// ==============================================
+// Typeahead - Misc.
+// ==============================================
+
+.typeahead_button {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+}

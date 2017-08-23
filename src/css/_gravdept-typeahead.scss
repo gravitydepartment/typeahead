@@ -109,7 +109,6 @@
 }
 
 
-
 // ==============================================
 // Typeahead - Link
 // ==============================================
@@ -124,34 +123,4 @@
 .typeahead_link:focus {
     color: $c-text;
     background: $c-module-border;
-}
-
-
-// ----------------------------------------------
-// Modifier: Product
-
-.typeahead_link--product {
-    padding-right: (15px + 85px + 15px); // Magic number. Space for "add to cart" button.
-}
-
-
-
-// ==============================================
-// Typeahead - Misc.
-// ==============================================
-
-.typeahead .product-image {
-    width: 60px;
-    height: 60px;
-}
-
-.typeahead .product-name {
-    margin-bottom: 5px;
-    line-height: 1.3;
-}
-
-.typeahead_add-to-cart {
-    position: absolute;
-    top: 8px;
-    right: 15px;
 }
