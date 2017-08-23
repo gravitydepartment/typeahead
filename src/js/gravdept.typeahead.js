@@ -83,30 +83,50 @@ Typeahead.prototype = {
             }
         });
 
-        // Click outside form to close typeahead
+        // Click outside the form to close typeahead
         jQuery(document).on('click', function (e) {
             var $target  = jQuery(e.target);
             var $parents = $target.parents();
 
+            // Check if the typeahead form is a parent of the clicked element
             if ($parents.index(_this.$form) === -1) {
                 _this.hideTypeahead();
             }
         });
 
-        // Click typeahead link shows loading + follows link
+        // Click typeahead link
         this.$response.on('click', '.typeahead_link', function (e) {
+            // Always prevented.
+            // Recreate native-like or handle custom behavior manually.
             e.preventDefault();
-            e.stopPropagation(); // Prevent bubbling to "document" and triggering other events
 
             var href = jQuery(this).attr('href');
 
-            // Manually redirect to "href"
-            // See: https://github.com/gravitydepartment/typeahead/issues/1
-            if (typeof href !== 'undefined' && href !== '') {
-                window.location = href;
-            }
+            // If "href" looks real
+            if (
+                typeof href !== 'undefined'
+                && href !== ''
+                && href !== '#'
+            ) {
+                // Prevent bubbling to the "document" and closing typeahead.
+                // This allows the "loading" state to be seen next.
+                e.stopPropagation();
 
-            _this.showLoading();
+                // This will remove ".typeahead_link" from the DOM, which cancels the default
+                // behavior and delegated events attached.
+                _this.showLoading();
+
+                // Manually redirect to "href".
+                // See: https://github.com/gravitydepartment/typeahead/issues/1
+                window.location = href;
+            } else {
+                // Else - "href" is not a real link.
+                // Attach behavior externally with a delegated event listener.
+                //
+                // Suggestion:
+                // -- Watch for clicks bubbling from ".typeahead_link" to "#module-typeahead-response".
+                // -- Use "e.stopPropagation()" so bubbling won't reach "document" and hide typeahead.
+            }
         });
     },
 
