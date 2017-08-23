@@ -8,6 +8,17 @@
 
 
 // ==============================================
+// Typeahead - Button
+// ==============================================
+
+.typeahead_button {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+}
+
+
+// ==============================================
 // Typeahead - Link
 // ==============================================
 
@@ -27,15 +38,4 @@
 
 .typeahead_link--has-button {
     padding-right: (15px + 85px + 15px); // Magic number. Space for "add to cart" button.
-}
-
-
-// ==============================================
-// Typeahead - Misc.
-// ==============================================
-
-.typeahead_button {
-    position: absolute;
-    top: 8px;
-    right: 15px;
 }
