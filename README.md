@@ -14,7 +14,7 @@ Fast, lightweight typeahead to enhance text inputs.
 - Customizable — Simple configuration object.
 - Simple — Override the `render` method to match any data source.
 - Touch-friendly
-- Keyboard-friendly
+- Keyboard-friendly (tabbing)
 
 **Form behavior**
 
@@ -31,36 +31,45 @@ Fast, lightweight typeahead to enhance text inputs.
 - Custom messaging for empty responses,
 - Or simply hide the typeahead.
 
+**Valid response behavior**
+
+- Click link to follow immediately,
+- Or delegated event for external handling.
+
 ## Dependencies
 
 - jQuery
 
 ## Usage
 
-[todo]
+Add JS templates to the page:
 
-Include the script in your page:
-
-```html
-<script src="path/to/gravdept.typeahead.min.js"></script>
+```
+See: /src/html/js-templates.html
 ```
 
-And initialize with the options you need:
+Add the script to the page:
+
+```html
+<script src="path/to/gravdept.typeahead.js"></script>
+```
+
+Initialize with options:
 
 ```javascript
-var siteTypeahead = new Typeahead();
+var searchTypeahead = new Typeahead();
 
-siteTypeahead.render = function (json) {
+searchTypeahead.render = function (json) {
     // Process your JSON and return HTML
     return html;
 };
 
-siteTypeahead.init({
+searchTypeahead.init({
     elements: {
-        button:   'site-search-button',
-        form:     'site-search-form',
-        input:    'site-search-input',
-        response: 'site-search-response'
+        button:   'search-button',
+        form:     'search-form',
+        input:    'search-input',
+        response: 'search-response'
     },
     url: 'http://example.com/ajax/typeahead'
 });
@@ -76,10 +85,10 @@ siteTypeahead.init({
 var config = {
     debounceTime: 300, // {number} - Milliseconds to pause before querying
     elements: {
-        button:   'site-search-button',  // {string} - ID of submit buttton
-        form:     'site-search-form',    // {string} - ID of form
-        input:    'site-search-input',   // {string} - ID of text input
-        response: 'site-search-response' // {string} - ID of response element
+        button:   'search-button',  // {string} - ID of submit buttton
+        form:     'search-form',    // {string} - ID of form
+        input:    'search-input',   // {string} - ID of text input
+        response: 'search-response' // {string} - ID of response element
     },
     preventFormSubmit: false, // {boolean} - Prevent form submit if no "action" exists
     queryMinimum:      3,     // {number}  - Minimum characters to start typeahead
