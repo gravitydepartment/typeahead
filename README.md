@@ -90,6 +90,7 @@ var config = {
         input:    'search-input',   // {string} - ID of text input
         response: 'search-response' // {string} - ID of response element
     },
+    paramNameForQuery: null,  // {string}  - Param name for which the query value is passed.
     preventFormSubmit: false, // {boolean} - Prevent form submit if no "action" exists
     queryMinimum:      3,     // {number}  - Minimum characters to start typeahead
     requestData:       {},    // {object}  - URL params to attach to request

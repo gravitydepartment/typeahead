@@ -21,6 +21,7 @@ function Typeahead () {
             response: null  // {string} - ID of response element
         },
         headers:           {},    // {object}  - HTTP headers to attach to request
+        paramNameForQuery: null,  // {string}  - Param name for which the query value is passed.
         preventFormSubmit: false, // {boolean} - Prevent form submit if no "action" exists
         queryMinimum:      3,     // {number}  - Minimum characters to start typeahead
         requestData:       {},    // {object}  - URL params to attach to request
@@ -153,6 +154,19 @@ Typeahead.prototype = {
         };
     },
 
+    /**
+     * @return {string} - The parameter name for which the query value is passed.
+     */
+    getParamNameForQueryValue: function () {
+        if (this.config.paramNameForQuery !== null) {
+            // Use parameter name defined during typeahead init.
+            return this.config.paramNameForQuery;
+        } else {
+            // Use "name" attribute from input element.
+            return this.$input.attr('name');
+        }
+    },
+
     hideTypeahead: function () {
         this.$response.addClass('hide');
     },
@@ -214,7 +228,7 @@ Typeahead.prototype = {
         var _this = this;
 
         var data = this.config.requestData;
-        data[this.$input.attr('name')] = query.trim();
+        data[this.getParamNameForQueryValue()] = query.trim();
 
         jQuery.ajax({
             beforeSend: function () {
