@@ -84,13 +84,22 @@ Typeahead.prototype = {
             }
         });
 
-        // Click outside the form to close typeahead
+        // Click outside the input or response to close typeahead
         jQuery(document).on('click', function (e) {
             var $target  = jQuery(e.target);
             var $parents = $target.parents();
 
-            // Check if the typeahead form is a parent of the clicked element
-            if ($parents.index(_this.$form) === -1) {
+            var targetId   = e.target.id;
+            var inputId    = _this.$input.first().attr('id');
+            var responseId = _this.$input.first().attr('id');
+
+            var isClickOnInput         = (targetId === inputId)    ? true : false;
+            var isClickOnResponse      = (targetId === responseId) ? true : false;
+            var isClickOnResponseChild = ($parents.index(_this.$response) !== -1) ? true : false;
+
+            if (isClickOnResponse || isClickOnInput || isClickOnResponseChild) {
+                // Keep typeahead open
+            } else {
                 _this.hideTypeahead();
             }
         });
