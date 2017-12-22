@@ -46,13 +46,13 @@ Fast, lightweight typeahead to enhance text inputs.
 Add JS templates to the page:
 
 ```
-See: /src/html/js-templates.html
+See: /html/js-templates.html
 ```
 
 Add the script to the page:
 
 ```html
-<script src="path/to/gravdept.typeahead.js"></script>
+<script src="path/to/typeahead.js"></script>
 ```
 
 Initialize with options:
