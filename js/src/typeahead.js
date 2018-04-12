@@ -191,10 +191,10 @@ Typeahead.prototype = {
     },
 
     onInput: function () {
+        var query = this.$input.val().trim();
+
         // Modify query before sending request
-        var query = this.modifyQuery(
-            this.$input.val()
-        );
+        query = this.modifyQuery(query);
 
         // Send query or hide response
         if (query.length && query.length >= this.config.queryMinimum) {
@@ -237,7 +237,7 @@ Typeahead.prototype = {
         var _this = this;
 
         var data = this.config.requestData;
-        data[this.getParamNameForQueryValue()] = query.trim();
+        data[this.getParamNameForQueryValue()] = query;
 
         jQuery.ajax({
             beforeSend: function () {
