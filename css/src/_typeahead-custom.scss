@@ -13,25 +13,15 @@
 
 .typeahead_button {
     position: absolute;
-    top: 8px;
+    top: 50%;
     right: 15px;
+    margin-top: (30px / -2);
 }
 
 
 // ==============================================
 // Typeahead - Link
 // ==============================================
-
-.typeahead_link .product-image {
-    width: 60px;
-    height: 60px;
-}
-
-.typeahead_link .product-name {
-    margin-bottom: 5px;
-    line-height: 1.3;
-}
-
 
 // ----------------------------------------------
 // Modifier: Has Button

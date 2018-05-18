@@ -15,9 +15,9 @@
     position: relative;
     margin-bottom: $gap;
     padding: 5px 0;
-    border: 1px solid $c-module-border;
+    border: 1px solid $c-border;
     border-radius: 3px;
-    background: $c-module-background;
+    background: $c-background;
 
     &:before {
         @include triangle (up, 10px, black(0.15));
@@ -27,7 +27,7 @@
     }
 
     &:after {
-        @include triangle (up, 10px, $c-module-background);
+        @include triangle (up, 10px, $c-background);
         top: -10px;
         left: 20px;
         z-index: $z-menu-arrow-fill;
@@ -59,7 +59,7 @@
 
 .typeahead_group {
     padding: 15px 0 5px;
-    border-top: 1px solid $c-module-border;
+    border-top: 1px solid $c-border;
 
     &:first-child {
         padding-top: (15px - 5px); // -5px for padding on ".typeahead"
@@ -80,7 +80,7 @@
     margin-bottom: 5px;
     padding: 0 15px;
     color: $c-text-subtle;
-    font-size: $f-size-xxs;
+    font-size: $font-size-xxs;
     font-weight: normal;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -93,7 +93,7 @@
 
 .typeahead_item {
     position: relative;
-    border-top: 1px solid $c-module-border;
+    border-top: 1px solid $c-border;
 
     &:first-child {
         border-top: 0;
@@ -118,5 +118,15 @@
 .no-touchevents .typeahead_link:hover,
 .typeahead_link:focus {
     color: $c-text;
-    background: $c-module-border;
+    background: $c-border;
+}
+
+
+// ==============================================
+// Typeahead - Image
+// ==============================================
+
+.typeahead_image {
+    width: 60px;
+    height: 60px;
 }
