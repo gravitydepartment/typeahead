@@ -12,9 +12,11 @@ Fast, lightweight typeahead to enhance text inputs.
 
 - Efficient — Create multiple typeahead instances from a lean constructor prototype.
 - Customizable — Simple configuration object.
-- Simple — Override the `render` method to match any data source.
+- Simple rendering — Override the `render` method to match any data source.
+- Multiple facets — Supports multiple grouped facets in one response.
 - Touch-friendly — Appropriate padding on target sizes.
 - Keyboard-friendly — Supports <kbd>tab</kbd> and <kbd>shift + tab</kbd>.
+- Two display modes — Block or absolutely positioned results.
 - Click outside the input or response to close typeahead.
 
 **Form behavior**
@@ -27,15 +29,15 @@ Fast, lightweight typeahead to enhance text inputs.
 - Render typeahead instantly on new response,
 - Or show loading indicator for slow-loading requests.
 
-**Response is empty behavior**
-
-- Custom messaging for empty responses,
-- Or simply hide the typeahead.
-
-**Response has data behavior**
+**Valid response behavior**
 
 - Click link to follow immediately,
 - Or delegated event for external handling.
+
+**Empty response behavior**
+
+- Custom messaging for empty responses,
+- Or simply hide the typeahead.
 
 ## Dependencies
 
