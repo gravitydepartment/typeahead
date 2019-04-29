@@ -1,8 +1,8 @@
+[![Gravity Department](https://cdn.gravitydept.com/github/repo-header.png)](https://gravitydept.com/)
+
 # GravDept Typeahead
 
 Fast, lightweight typeahead to enhance text inputs.
-
-[![Gravity Department](http://gravitydept.com/_themes/gravdept/img/logo-footer.png)](http://gravitydept.com/)
 
 ## Demo
 
