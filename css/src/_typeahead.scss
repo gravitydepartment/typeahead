@@ -19,14 +19,14 @@
     border-radius: 3px;
     background: $c-background;
 
-    &:before {
+    &::before {
         @include triangle (up, 10px, black(0.15));
         top: -11px;
         left: 20px;
         z-index: $z-menu-arrow-stroke;
     }
 
-    &:after {
+    &::after {
         @include triangle (up, 10px, $c-background);
         top: -10px;
         left: 20px;
