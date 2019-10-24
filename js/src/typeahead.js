@@ -101,7 +101,7 @@ Typeahead.prototype = {
 
             var targetId   = e.target.id;
             var inputId    = _this.$input.first().attr('id');
-            var responseId = _this.$input.first().attr('id');
+            var responseId = _this.$response.first().attr('id');
 
             var isClickOnInput         = (targetId === inputId)    ? true : false;
             var isClickOnResponse      = (targetId === responseId) ? true : false;
